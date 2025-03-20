@@ -1,0 +1,147 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #000;
+    background-image: 
+        radial-gradient(circle at 50% 50%, rgba(0, 255, 0, 0.1) 0%, transparent 50%),
+        linear-gradient(45deg, rgba(0, 255, 0, 0.05) 25%, transparent 25%),
+        linear-gradient(-45deg, rgba(0, 255, 0, 0.05) 25%, transparent 25%);
+}
+
+.calculator {
+    background-color: #1a1a1a;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 0 30px rgba(0, 255, 0, 0.2);
+    border: 2px solid #00ff00;
+    position: relative;
+    overflow: hidden;
+}
+
+.creator {
+    text-align: center;
+    color: #00ff00;
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+    font-weight: bold;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+    }
+    to {
+        text-shadow: 0 0 20px rgba(0, 255, 0, 0.8);
+    }
+}
+
+.calculator::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #00ff00, transparent);
+    animation: scanline 2s linear infinite;
+}
+
+@keyframes scanline {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+.display {
+    margin-bottom: 25px;
+    position: relative;
+}
+
+#result {
+    width: 100%;
+    height: 70px;
+    border: 2px solid #00ff00;
+    background-color: #000;
+    color: #00ff00;
+    font-size: 2.5em;
+    text-align: right;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.2);
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+button {
+    padding: 20px;
+    font-size: 1.3em;
+    border: 2px solid #00ff00;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: linear-gradient(145deg, #1a1a1a, #000);
+    color: #00ff00;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.1);
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.3);
+}
+
+.number {
+    background: linear-gradient(145deg, #1a1a1a, #000);
+    color: #00ff00;
+}
+
+.operator {
+    background: linear-gradient(145deg, #003300, #001100);
+    color: #00ff00;
+    border-color: #00cc00;
+}
+
+.function {
+    background: linear-gradient(145deg, #002200, #001100);
+    color: #00ff00;
+    border-color: #00cc00;
+    font-size: 1.1em;
+}
+
+.clear {
+    background: linear-gradient(145deg, #330000, #110000);
+    color: #ff0000;
+    border-color: #ff0000;
+}
+
+.equals {
+    background: linear-gradient(145deg, #003300, #001100);
+    color: #00ff00;
+    border-color: #00cc00;
+    grid-column: span 2;
+}
+
+.zero {
+    grid-column: span 2;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+    background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+}
+
+button:active {
+    transform: translateY(1px);
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.2);
+} 
